@@ -20,3 +20,24 @@ Install requirements in requirements.txt
 ```bash
 pip install -r requirements.txt
 ```
+
+
+Collect static files
+```bash
+python manage.py collectstatic --noinput
+```
+
+Migrate your app
+
+```bash
+python manage.py makemigrations
+python manage.py migrate
+```
+
+Load dummy data
+
+```bash
+python manage.py loaddata db.json
+```
+
+Now you can access the app using your browser with the following link: `127.0.0.1:8000`

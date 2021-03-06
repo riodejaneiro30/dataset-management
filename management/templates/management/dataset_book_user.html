@@ -2,23 +2,21 @@
 
 {% block content %}
 <div class="container-fluid">
-    <h2>Dataset List</h2>
+    <h2>My Booking Dataset</h2>
     <table class="table">
         <thead>
             <th>File</th>
             <th>Status</th>
-            <th>Created Date</th>
-            <th>Action</th>
         </thead>
         <tbody>
             {% for i in datasetBooks %}
             <tr>
-                <td> {{i.dataset.file_url}} </td>
-                <td> {{i.status}} </td>
-                <td> {{i.created_date}} </td>
-                <td>
-                    <a href="book/cancel/{{i.id}}" class="btn btn-danger" id='{{i.id}}'>Cancel</a>
-                </td>
+                <td> <a href="{{i.dataset.file_name}}">{{i.dataset.file_name}}</a> </td>
+                {% if i.status == 3 %}
+                <td> APPROVE </td>
+                {% else %}
+                <td> REJECTED </td>
+                {% endif %}
             </tr>
             {% endfor %}
         </tbody>

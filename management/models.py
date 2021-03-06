@@ -2,12 +2,11 @@ from django.db import models
 from django.contrib.auth.models import User
 
 # Create your models here.
-# datasets : active, isbooked (yes/no), url, id
-# datasetbooks : id, user, datasets, status (pending, rejected, approve)
 STATUS = ((1, 'PENDING'),(2, 'REJECTED'),(3, 'APPROVE'))
 
 class Dataset(models.Model):
     file_url = models.URLField()
+    file_name = models.CharField(max_length=50)
     active = models.BooleanField(default=True)
     is_booked = models.BooleanField(default=False)
     created_date = models.DateTimeField(auto_now_add=True)

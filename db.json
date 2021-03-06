@@ -1,0 +1,35 @@
+[
+  {
+    "model": "management.dataset",
+    "pk": 1,
+    "fields": {
+      "file_url": "https://drive.google.com/file/d/13pqo7Rh7OVFUxPdlhiOl4vMGJlBgTrUa/view?usp=sharing",
+      "file_name": "Dataset A",
+      "active": true,
+      "is_booked": false,
+      "created_date": "2020-01-01 07:00:00"
+    }
+  },
+  {
+    "model": "management.dataset",
+    "pk": 2,
+    "fields": {
+      "file_url": "https://drive.google.com/file/d/13pqo7Rh7OVFUxPdlhiOl4vMGJlBgTrUa/view?usp=sharing",
+      "file_name": "Dataset B",
+      "active": true,
+      "is_booked": false,
+      "created_date": "2020-01-01 07:00:00"
+    }
+  },
+  {
+    "model": "management.dataset",
+    "pk": 3,
+    "fields": {
+      "file_url": "https://drive.google.com/file/d/13pqo7Rh7OVFUxPdlhiOl4vMGJlBgTrUa/view?usp=sharing",
+      "file_name": "Dataset C",
+      "active": true,
+      "is_booked": false,
+      "created_date": "2020-01-01 07:00:00"
+    }
+  }
+]

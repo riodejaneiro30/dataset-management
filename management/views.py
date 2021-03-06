@@ -30,32 +30,34 @@ def datasetList(request):
 def deleteDataset(request, id):
     try :
         dataset = Dataset.objects.get(id=id)
-        dataset.is_active = False
+        dataset.active = False
+
+        datasetBook = DatasetBook.objects.filter(dataset=dataset)
     except Dataset.DoesNotExist :
         HttpResponseRedirect('/dataset')
     dataset.save()
+    datasetBook.delete()
 
     return HttpResponseRedirect('/dataset')
 
 @login_required
 def createBooking(request, id):
     user = request.user
-    print(user)
 
     try :
         dataset = Dataset.objects.get(id=id)
-        datasetBook = DatasetBook.create(dataset=dataset, user=user, status=1)
+        datasetBook = DatasetBook.objects.create(dataset=dataset, user=user, status=3)
         dataset.is_booked = True
     except Dataset.DoesNotExist :
-        HttpResponseRedirect('/dataset')
+        HttpResponseRedirect('/dataset/book')
     datasetBook.save()
     dataset.save()
 
-    return HttpResponseRedirect('/dataset')
+    return HttpResponseRedirect('/dataset/book')
 
 @login_required
 def datasetBookList(request):
-    dataset_book_list = DatasetBook.objects.all()
+    dataset_book_list = DatasetBook.objects.filter(user=request.user)
     page = request.GET.get('page', 1)
 
     paginator = Paginator(dataset_book_list, 5)
