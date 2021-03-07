@@ -11,9 +11,7 @@ staticfiles
 .htmlconv/
 .coverage
 .env
-/*/migrations/*.py
 .coverage
-/*/migrations/0*.py
 .idea/*
 
 .DS_Store
